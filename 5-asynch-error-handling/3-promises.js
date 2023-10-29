@@ -18,22 +18,20 @@ serData = JSON.stringify(objData);
 
 
 fs.writeFile("file.json", serData)
-    .then((err) => {
-        if(err) throw err;
+    .then(() => {
         console.log("file.json has been written");
         fs.writeFile("file1.json", serData);
     })
-    .then((err) => {
-        if(err) throw err;
+    .then(() => {
         console.log("file1.json has been written");
         fs.writeFile("file2.json", serData);
     })
-    .then((err) => {
-        if(err) throw err;
+    .then(() => {
+        throw new Error("errore fatale");
         console.log("file2.json has been written");
         fs.writeFile("file3.json", serData);
     })
-    .then((err) => {
-        if(err) throw err;
+    .then(() => {
         console.log("file3 has been written");
-    });
+    })
+    .catch(err => console.log(err.message));
