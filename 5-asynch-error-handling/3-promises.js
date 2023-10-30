@@ -35,3 +35,15 @@ fs.writeFile("file.json", serData)
         console.log("file3 has been written");
     })
     .catch(err => console.log(err.message));
+
+// let's make a promise api from a callback one!
+const fsc = require("node:fs");
+
+async function writeFile(filename, data){
+    return new Promise((resolve, reject) => {
+        fsc.writeFile(filename, data, (err) => {
+            if(err) reject(err);
+            resolve(data);
+        });
+    });
+}
