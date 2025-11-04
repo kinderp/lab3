@@ -1,6 +1,6 @@
 let firstName = "Antonio";
-let lastName = "Caristia";
-let title = "Engineer";
+let lastName = 'Caristia';
+let title = `Engineer`;
 title = "Prof";
 
 // string concatenation with plus operator
